@@ -20,8 +20,6 @@
 const sections = document.querySelectorAll('[data-nav]');
 const uList = document.querySelector('ul');
 const windowHeight = visualViewport.height;
-const links = document.querySelectorAll('a');
-const lists = document.querySelectorAll('li');
 const toTheTop = document.querySelector('button');
 
 
