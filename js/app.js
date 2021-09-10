@@ -75,10 +75,23 @@ navigationBuild();
 
 
 
-
+const section = document.getElementById('section2');
 
 // Add class 'active' to section when near top of viewport
-
+// function testing()
+// {
+    document.addEventListener('scroll', function() 
+    {
+    const boundry = section.getBoundingClientRect();
+    const windowHeight = visualViewport.height;
+    if (boundry.top + (boundry.height/1.2) <= windowHeight && (boundry.top + (boundry.height)/3) >= 0 )
+    {
+        console.log("mahmoud");
+    }
+}); 
+    
+// }
+    
 
 // Scroll to anchor ID using scrollTO event
 
