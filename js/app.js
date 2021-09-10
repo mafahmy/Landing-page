@@ -75,7 +75,7 @@ navigationBuild();
 
 
 
-const section = document.getElementById('section2');
+const section = document.getElementById('section3');
 
 // Add class 'active' to section when near top of viewport
 // function testing()
@@ -84,9 +84,12 @@ const section = document.getElementById('section2');
     {
     const boundry = section.getBoundingClientRect();
     const windowHeight = visualViewport.height;
-    if (boundry.top + (boundry.height/1.2) <= windowHeight && (boundry.top + (boundry.height)/3) >= 0 )
+    if (boundry.top + (boundry.height/1.4) <= windowHeight && (boundry.top + (boundry.height)/3) >= 0 )
     {
-        console.log("mahmoud");
+       section.classList.add('your-active-class');
+    } 
+    else {
+        section.classList.remove('your-active-class');
     }
 }); 
     
