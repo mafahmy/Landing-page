@@ -16,32 +16,19 @@
 /**
  * Define Global Variables
  * 
-*/
-const sections = document.querySelectorAll('[data-nav]');                // getting the all sections in one variable
-const uList = document.querySelector('ul');                              // selecting the unordered list
-const windowHeight = visualViewport.height;                              // getting the view height
-const toTheTop = document.querySelector('button');                       // selecting the button  
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/ 
-toTheTop.addEventListener('click', function()                            // adding a click event to scroll to the top button
-{
-    scrollTo(
-        {
-            top: 0,
-            behavior: 'smooth'
-        }
-    );
-});
-/**
+*//**
  * End Helper Functions
  * Begin Main Functions
  * The function to build the navigation once the node list [data-nav] updated
 */
 // looping the sections list
 function navigationBuild() {
+
+    const sections = document.querySelectorAll('[data-nav]');                // getting the all sections in one variable
+    const uList = document.querySelector('ul');                              // selecting the unordered list
+    const windowHeight = visualViewport.height;                              // getting the view height
+    const toTheTop = document.querySelector('button');                       // selecting the button  
+
     sections.forEach(function (element, index ) 
     {
         const boundry = element.getBoundingClientRect();                 //getting the boundry details of each section
@@ -81,6 +68,15 @@ function navigationBuild() {
             }
         });
     });
+    toTheTop.addEventListener('click', function()                            // adding a click event to scroll to the top button
+{
+    scrollTo(
+        {
+            top: 0,
+            behavior: 'smooth'
+        }
+    );
+});
 }
 // build the nav
 navigationBuild();
