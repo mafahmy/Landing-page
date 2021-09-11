@@ -29,7 +29,12 @@ const links = document.querySelectorAll('a ul li #navbar__list' );
 */ 
 toTheTop.addEventListener('click', function()
 {
-    window.scrollTo(0,0);
+    scrollTo(
+        {
+            top: 0,
+            behavior: 'smooth'
+        }
+    );
 });
 /**
  * End Helper Functions
@@ -43,14 +48,28 @@ function navigationBuild() {
         let indexPlus1 = index + 1;
         let a = document.createElement('a');
         let link = document.createTextNode("Section " + indexPlus1);
+        
         a.appendChild(link);
         a.href = "#section" + indexPlus1;
         a.style.textDecoration = 'none';
         a.style.color = 'black';
-        
+        a.addEventListener('click',smooth);
+
         list.appendChild(a);
         uList.appendChild(list); 
-        a.addEventListener('click',smooth);   
+
+        function smooth(e)
+        {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            const offsetTop = document.querySelector(href).offsetTop;
+            scrollTo(
+                {
+                    behavior: 'smooth',
+                    top : offsetTop
+                }
+            )
+        };
     });
 }
 // build the nav
@@ -132,11 +151,7 @@ document.addEventListener('scroll', function ()
 {
     link.addEventListener('click',smooth);
 }*/
-function smooth(e)
-{
-    e.preventDefault();
-    console.log('mahmoud');
-}
+
     
 
 
