@@ -21,29 +21,24 @@ const sections = document.querySelectorAll('[data-nav]');
 const uList = document.querySelector('ul');
 const windowHeight = visualViewport.height;
 const toTheTop = document.querySelector('button');
-
-
+const links = document.querySelectorAll('a ul li #navbar__list' );
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */ 
-
 toTheTop.addEventListener('click', function()
 {
     window.scrollTo(0,0);
 });
-
 /**
  * End Helper Functions
  * Begin Main Functions
  * The function to build the navigation once the node list [data-nav] updated
 */
-
 function navigationBuild() {
     sections.forEach(function (element, index ) 
     {
-        
         const list = document.createElement('li');
         let indexPlus1 = index + 1;
         let a = document.createElement('a');
@@ -52,8 +47,10 @@ function navigationBuild() {
         a.href = "#section" + indexPlus1;
         a.style.textDecoration = 'none';
         a.style.color = 'black';
+        
         list.appendChild(a);
-        uList.appendChild(list);    
+        uList.appendChild(list); 
+        a.addEventListener('click',smooth);   
     });
 }
 // build the nav
@@ -62,7 +59,6 @@ function navigationBuild() {
 navigationBuild();
 
 // Add class 'active' to section when near top of viewport
-
 
 document.addEventListener('scroll', function () 
 {
@@ -78,7 +74,6 @@ document.addEventListener('scroll', function ()
         firstSection.classList.remove('your-active-class');
     }
 });
-
 document.addEventListener('scroll', function () 
 {
     const secondSection = document.getElementById('section2');
@@ -93,8 +88,6 @@ document.addEventListener('scroll', function ()
         secondSection.classList.remove('your-active-class');
     }
 });
-
-
 document.addEventListener('scroll', function () 
 {
     const thirdSection = document.getElementById('section3');
@@ -109,7 +102,6 @@ document.addEventListener('scroll', function ()
         thirdSection.classList.remove('your-active-class');
     }
 });
-
 document.addEventListener('scroll', function () 
 {
     const forthSection = document.getElementById('section4');
@@ -117,13 +109,11 @@ document.addEventListener('scroll', function ()
     
     if (boundry4.top + (boundry4.height / 1.4) <= windowHeight && (boundry4.top + (boundry4.height) / 3) >= 0) 
     {
-        forthSection.classList.add('your-active-class');
-       
+        forthSection.classList.add('your-active-class');   
     }    
     else 
     {
-        forthSection.classList.remove('your-active-class');
-        
+        forthSection.classList.remove('your-active-class');    
     }
 });
 
@@ -138,6 +128,17 @@ document.addEventListener('scroll', function ()
  * Begin Events
  *
 */
+/*for (const link of links)
+{
+    link.addEventListener('click',smooth);
+}*/
+function smooth(e)
+{
+    e.preventDefault();
+    console.log('mahmoud');
+}
+    
+
 
 // Build menu 
 
