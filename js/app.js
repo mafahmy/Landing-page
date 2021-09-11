@@ -17,18 +17,16 @@
  * Define Global Variables
  * 
 */
-const sections = document.querySelectorAll('[data-nav]');
-const uList = document.querySelector('ul');
-const windowHeight = visualViewport.height;
-const toTheTop = document.querySelector('button');
-const links = document.querySelectorAll('a ul li #navbar__list' );
-
+const sections = document.querySelectorAll('[data-nav]');                // getting the all sections in one variable
+const uList = document.querySelector('ul');                              // selecting the unordered list
+const windowHeight = visualViewport.height;                              // getting the view height
+const toTheTop = document.querySelector('button');                       // selecting the button  
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */ 
-toTheTop.addEventListener('click', function()
+toTheTop.addEventListener('click', function()                            // adding a click event to scroll to the top button
 {
     scrollTo(
         {
@@ -83,42 +81,6 @@ function navigationBuild() {
             }
         });
     });
-
 }
 // build the nav
-// changing the text color of the whole nav menu
-
 navigationBuild();
-
-// Add class 'active' to section when near top of viewport
-
-
-    
-
-
-
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- *
-*/
-/*for (const link of links)
-{
-    link.addEventListener('click',smooth);
-}*/
-
-    
-
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
