@@ -12,7 +12,10 @@
  * JS Standard: ESlint
  * 
 */
-
+const sections = document.querySelectorAll('[data-nav]');                // getting the all sections in one variable
+const uList = document.querySelector('ul');                              // selecting the unordered list
+const windowHeight = visualViewport.height;                              // getting the view height
+const toTheTop = document.querySelector('button');                       // selecting the button 
 /**
  * Define Global Variables
  * 
@@ -23,12 +26,6 @@
 */
 // looping the sections list
 function navigationBuild() {
-
-    const sections = document.querySelectorAll('[data-nav]');                // getting the all sections in one variable
-    const uList = document.querySelector('ul');                              // selecting the unordered list
-    const windowHeight = visualViewport.height;                              // getting the view height
-    const toTheTop = document.querySelector('button');                       // selecting the button  
-
     sections.forEach(function (element, index ) 
     {
         const boundry = element.getBoundingClientRect();                 //getting the boundry details of each section
@@ -55,28 +52,34 @@ function navigationBuild() {
                     top : offsetTop
                 }
             )
-        };
-        document.addEventListener('scroll',function()                    //scroll event to set and unset the class to active
-        {
-            const boundry = element.getBoundingClientRect();
-            if (boundry.top + (boundry.height / 1.4) <= windowHeight && boundry.top + (boundry.height / 3) >=0)
-            {
-                element.classList.add('your-active-class');
-            }
-            else {
-                element.classList.remove('your-active-class');
-            }
-        });
-    });
-    toTheTop.addEventListener('click', function()                            // adding a click event to scroll to the top button
+        };   
+    });   
+}    
+// build the nav
+
+navigationBuild();
+
+document.addEventListener('scroll',function()                    //scroll event to set and unset the class to active
 {
+    sections.forEach(function (element)
+    {
+        const boundry = element.getBoundingClientRect();
+        if (boundry.top + (boundry.height / 1.4) <= windowHeight && boundry.top + (boundry.height / 3) >=0)
+        {
+            element.classList.add('your-active-class');
+        }
+        else {
+            element.classList.remove('your-active-class');
+        }
+   });
+});
+toTheTop.addEventListener('click', function()                            // adding a click event to scroll to the top button
+    {
     scrollTo(
         {
             top: 0,
             behavior: 'smooth'
         }
-    );
-});
-}
-// build the nav
-navigationBuild();
+        );
+     });
+
