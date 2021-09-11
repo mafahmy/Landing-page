@@ -22,6 +22,7 @@ const uList = document.querySelector('ul');
 const windowHeight = visualViewport.height;
 const toTheTop = document.querySelector('button');
 const links = document.querySelectorAll('a ul li #navbar__list' );
+
 /**
  * End Global Variables
  * Start Helper Functions
@@ -44,6 +45,7 @@ toTheTop.addEventListener('click', function()
 function navigationBuild() {
     sections.forEach(function (element, index ) 
     {
+        const boundry = element.getBoundingClientRect();
         const list = document.createElement('li');
         let indexPlus1 = index + 1;
         let a = document.createElement('a');
@@ -70,7 +72,19 @@ function navigationBuild() {
                 }
             )
         };
+        document.addEventListener('scroll',function()
+        {
+            const boundry = element.getBoundingClientRect();
+            if (boundry.top + (boundry.height / 1.4) <= windowHeight && boundry.top + (boundry.height / 3) >=0)
+            {
+                element.classList.add('your-active-class');
+            }
+            else {
+                element.classList.remove('your-active-class');
+            }
+        });
     });
+
 }
 // build the nav
 // changing the text color of the whole nav menu
@@ -79,62 +93,9 @@ navigationBuild();
 
 // Add class 'active' to section when near top of viewport
 
-document.addEventListener('scroll', function () 
-{
-    const firstSection = document.getElementById('section1');
-    const boundry1 = firstSection.getBoundingClientRect();
+
     
-    if (boundry1.top + (boundry1.height / 1.4) <= windowHeight && (boundry1.top + (boundry1.height) / 3) >= 0) 
-    {
-        firstSection.classList.add('your-active-class');
-    }
-    else 
-    {
-        firstSection.classList.remove('your-active-class');
-    }
-});
-document.addEventListener('scroll', function () 
-{
-    const secondSection = document.getElementById('section2');
-    const boundry2 = secondSection.getBoundingClientRect();
-    
-    if (boundry2.top + (boundry2.height / 1.4) <= windowHeight && (boundry2.top + (boundry2.height) / 3) >= 0) 
-    {
-        secondSection.classList.add('your-active-class');
-    }
-    else 
-    {
-        secondSection.classList.remove('your-active-class');
-    }
-});
-document.addEventListener('scroll', function () 
-{
-    const thirdSection = document.getElementById('section3');
-    const boundry3 = thirdSection.getBoundingClientRect();
-    
-    if (boundry3.top + (boundry3.height / 1.4) <= windowHeight && (boundry3.top + (boundry3.height) / 3) >= 0) 
-    {
-        thirdSection.classList.add('your-active-class');
-    }
-    else 
-    {
-        thirdSection.classList.remove('your-active-class');
-    }
-});
-document.addEventListener('scroll', function () 
-{
-    const forthSection = document.getElementById('section4');
-    const boundry4 = forthSection.getBoundingClientRect();
-    
-    if (boundry4.top + (boundry4.height / 1.4) <= windowHeight && (boundry4.top + (boundry4.height) / 3) >= 0) 
-    {
-        forthSection.classList.add('your-active-class');   
-    }    
-    else 
-    {
-        forthSection.classList.remove('your-active-class');    
-    }
-});
+
 
 
 
