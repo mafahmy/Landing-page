@@ -202,6 +202,11 @@ section:nth-of-type(3n + 1) .landing__container::after {
     opacity: 0;
     transition: ease 0.5s all;
 }
+.navbar__menu li.active {
+    background: rgb(164, 188, 194);
+    color: #fff;
+    transition: ease 0.3s all;
+}
 
 
 /* ---- Theme State Rules ---- */
@@ -220,6 +225,11 @@ section.your-active-class .landing__container::before {
 section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
+}
+.section-link {
+    text-decoration: none;
+    color: black;
+
 }
 
 /* Section Active Styles Keyframe Animations */
